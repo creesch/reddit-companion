@@ -3,6 +3,8 @@
 reddit companion is a Chrome extension that integrates reddit into the browser. 
 This is a fork of the original extension to fix issues and add new functionality.
 
+The Chrome Web Store entry can be [found here](https://chrome.google.com/webstore/detail/hjndgefhmfcgpoocjcgoemphhdkbhipm).
+
 ## features
 
 ### info bar
