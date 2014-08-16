@@ -9,8 +9,8 @@ function updateTarget() {
 
 function randomMsg() {
   $('#title-input').attr('placeholder', function(i, val) {
-    var adjs = ['a clever', 'a snarky', 'a nifty', 'an exciting', 'an alluring', 'a juicy', 'an engaging', 'a concise'],
-        ends = ['Be witty!', 'Be silly!', 'Be nice!', 'Huzzah!', 'Have fun!', 'Good luck!']
+    var adjs = ['a fitting', 'an engaging', 'a concise'],
+        ends = ['Be nice!', 'Have fun!', 'Good luck!']
     return 'Enter '+randomChoice(adjs)+' title to share this page with reddit. '+randomChoice(ends)
   })
 }
