@@ -13,6 +13,10 @@ a.button {
     cursor: default;
 }
 
+.if-moderator span {
+    padding-left: 0;
+}
+
 button, a.button, .liked button#upvote:active, .disliked button#downvote:active, .saved button#save:active {
     box-sizing: border-box;
     height: 20px;
