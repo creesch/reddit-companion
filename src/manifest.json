@@ -10,7 +10,7 @@
     "http://*/*",
     "https://*/*"
   ],
-  "content_security_policy": "default-src 'self'; connect-src 'self' http://www.reddit.com; style-src 'self' 'unsafe-inline'; script-src 'self'",
+  "content_security_policy": "default-src 'self'; connect-src 'self' https://*.reddit.com; connect-src 'self' http://*.reddit.com; style-src 'self' 'unsafe-inline'; script-src 'self'",
   "icons": {
     "16"  : "images/shine-16.png",
     "48"  : "images/shine-48.png",
@@ -30,7 +30,7 @@
       "js": ["debug.js", "redditContent.js"]
     },
     {
-      "matches": ["http://*/*"],
+      "matches": ["http://*/*", "https://*/*"],
       "run_at": "document_start",
       "js": ["debug.js", "pageOverlay.js"]
     }

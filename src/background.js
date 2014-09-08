@@ -52,7 +52,7 @@ redditInfo = {
 
     update: function(callback) {
         this.request({
-            url: 'http://www.reddit.com/api/me.json',
+            url: 'https://www.reddit.com/api/me.json',
             success: function(resp) {
                 if (resp.data) {
                     console.log('Updated reddit user data', resp.data)
@@ -66,7 +66,7 @@ redditInfo = {
 
     fetchMail: function(callback) {
         this.request({
-            url: 'http://www.reddit.com/message/unread.json',
+            url: 'https://www.reddit.com/message/unread.json',
             success: function(resp) {
                 if (resp.data) {
                     callback(resp.data.children)
@@ -80,7 +80,7 @@ redditInfo = {
         console.log('Performing AJAX info call for ', params)
         params.limit = 1
         this.request({
-            url: 'http://www.reddit.com/api/info.json',
+            url: 'https://www.reddit.com/api/info.json',
             data: params,
             success: function(resp) {
                 if (resp.data) {
@@ -162,7 +162,7 @@ redditInfo = {
         data.uh = this.modhash
         this.request({
             type: 'POST',
-            url: 'http://www.reddit.com/api/'+action,
+            url: 'https://www.reddit.com/api/'+action,
             data: data,
             success: function(resp) { callback(true) },
             error: function() { callback(false) }
@@ -395,7 +395,7 @@ mailNotifier = {
             n.notification = noteId
             if(!chrome.notifications.onClicked.hasListeners()){
                 chrome.notifications.onClicked.addListener(function (){
-                        window.open('http://www.reddit.com/message/unread/')
+                        window.open('https://www.reddit.com/message/unread/')
                         n.clear()
                     }
                 )}
@@ -480,7 +480,17 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
     switch (request.action) {
         case 'thingClick':
             console.log('Thing clicked', request)
-            redditInfo.setURL(request.url, request.info)
+            console.log(sender.url)
+            var requestUrl;
+            if(/^(https:\/\/)...?\.reddit\.com.*$/.test(sender.url)) {
+				
+				requestUrl = request.url;
+				requestUrl = requestUrl.replace("http://", "https://");
+			} else { 
+				requestUrl = request.url;
+			}
+			
+            redditInfo.setURL(requestUrl, request.info)
             break
     }
 })
