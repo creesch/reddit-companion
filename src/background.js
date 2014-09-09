@@ -481,13 +481,10 @@ chrome.extension.onRequest.addListener(function(request, sender, callback) {
         case 'thingClick':
             console.log('Thing clicked', request)
             console.log(sender.url)
-            var requestUrl;
-            if(/^(https:\/\/)...?\.reddit\.com.*$/.test(sender.url)) {
-				
-				requestUrl = request.url;
+            var requestUrl = request.url;
+            if(/^(https:\/\/)...?\.reddit\.com.*$/.test(sender.url) && /^http:\/\/...?\.reddit\.com.*$/.test(requestUrl)) {
+
 				requestUrl = requestUrl.replace("http://", "https://");
-			} else { 
-				requestUrl = request.url;
 			}
 			
             redditInfo.setURL(requestUrl, request.info)
