@@ -1,6 +1,6 @@
 {
   "name": "companion for reddit",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "manifest_version": 2,
   "description": "Turn your browser into a redditor's best friend.",
   "options_page": "options.html",
