@@ -26,12 +26,12 @@ ShineOverlay.prototype = {
     this.overlay.appendChild(this.frame)
     document.documentElement.appendChild(this.overlay)
   },
-
+  
   setHeight: function(height) {
     if (height) {
       this.overlay.style.height = height
     }
-    document.documentElement.style.webkitTransform = "translate(0,30px)"
+    document.documentElement.style.marginTop = height
     this.overlay.style.opacity = height ? 1 : 0
   },
 
@@ -41,7 +41,7 @@ ShineOverlay.prototype = {
     }.bind(this))
     this.setHeight(0)
   },
-
+  
   _display: function(url) {
     this.frame.setAttribute('src', chrome.extension.getURL(url))
   },
@@ -72,7 +72,6 @@ function removeBar() {
     shineBar.remove()
     shineBar = false
     console.log('Shine bar removed.')
-    document.documentElement.style.webkitTransform = "translate(0,0)"
   }
 }
 

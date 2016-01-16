@@ -23,7 +23,6 @@ html > shinebar {
     left: 0;
     right: 0;
     height: 0;
-    -webkit-transform: translate(0, -30px);
 }
 
 shinebar > iframe {
