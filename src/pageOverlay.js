@@ -31,7 +31,7 @@ ShineOverlay.prototype = {
     if (height) {
       this.overlay.style.height = height
     }
-    document.documentElement.style.webkitTransform = "translate(0,30px)"
+    document.body.style.webkitTransform = "translate(0,30px)"
     this.overlay.style.opacity = height ? 1 : 0
   },
 
@@ -40,6 +40,8 @@ ShineOverlay.prototype = {
       this.overlay.parentNode.removeChild(this.overlay)
     }.bind(this))
     this.setHeight(0)
+
+    document.body.style.webkitTransform = "translate(0,0)"
   },
 
   _display: function(url) {
@@ -72,7 +74,6 @@ function removeBar() {
     shineBar.remove()
     shineBar = false
     console.log('Shine bar removed.')
-    document.documentElement.style.webkitTransform = "translate(0,0)"
   }
 }
 
