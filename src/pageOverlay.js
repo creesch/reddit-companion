@@ -31,7 +31,7 @@ ShineOverlay.prototype = {
     if (height) {
       this.overlay.style.height = height
     }
-    document.body.style.webkitTransform = "translate(0,30px)"
+    document.body.style.webkitTransform = "translate(0,"+ height +")"
     this.overlay.style.opacity = height ? 1 : 0
   },
 
