@@ -32,4 +32,5 @@ shinebar > iframe {
     display: block !important;
     left: 0;
     overflow: hidden;
+    margin: 0;
 }
